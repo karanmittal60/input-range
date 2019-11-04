@@ -1,0 +1,50 @@
+.input-wraper{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 2em;
+}
+
+.tracker-wraper{
+    height: 36px;
+    display: flex;
+    width: 100%;
+}
+
+.tracker-container{
+    width: 100%;
+    align-self: center;
+    border: 1px solid #e1e1e1;
+    height: 15px;
+    border-radius: 5px;
+    outline: none;
+    opacity: 0.7;
+    transition: opacity .2s;
+}
+
+.thumb-wraper{
+
+    position: absolute;
+    z-index: 0;
+    cursor: grab;
+    user-select: none;
+    touch-action: none;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: rgb(170, 170, 170) 0px 2px 6px;
+    transform: translate(630px, -18.5px);
+
+    border-radius: 50%;
+    border: 6px solid #4CAF50;
+    width: 15px;
+    height: 15px;
+}
+
+.thumb-container{
+    position: absolute;
+    top: 35px;
+    color: #000;
+    background: #fff;
+}

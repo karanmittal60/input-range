@@ -1,26 +1,110 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react';
+import InputRange from "./InputRange";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    const [bodyInjuryRange, setBodyInjuryRange] = React.useState(50);
+
+    const handleRange = (event) => {
+        // console.log("==event==", event);
+        let {value, name} = event.target;
+        console.log("==handleRange==", value, name);
+        setBodyInjuryRange(value)
+    }
+    return (
+        <div>
+            <InputRange name="bodyInjuryRange"
+                        value={bodyInjuryRange}
+                        min="50"
+                        max="400"
+                        step="50"
+                        className="slider"
+                        onInput={handleRange}
+                        thumbValue={`$${bodyInjuryRange}`}
+            />
+            <InputRange name="bodyInjuryRange"
+                        value={bodyInjuryRange}
+                        min="50"
+                        max="400"
+                        step="50"
+                        className="slider"
+                        onInput={handleRange}
+                        thumbValue={`$${bodyInjuryRange}`}
+            />
+            <InputRange name="bodyInjuryRange"
+                        value={bodyInjuryRange}
+                        min="50"
+                        max="400"
+                        step="50"
+                        className="slider"
+                        onInput={handleRange}
+                        thumbValue={`$${bodyInjuryRange}`}
+            />
+            <InputRange name="bodyInjuryRange"
+                        value={bodyInjuryRange}
+                        min="50"
+                        max="400"
+                        step="50"
+                        className="slider"
+                        onInput={handleRange}
+                        thumbValue={`$${bodyInjuryRange}`}
+            />
+            <InputRange name="bodyInjuryRange"
+                        value={bodyInjuryRange}
+                        min="50"
+                        max="400"
+                        step="50"
+                        className="slider"
+                        onInput={handleRange}
+                        thumbValue={`$${bodyInjuryRange}`}
+            />
+            <InputRange name="bodyInjuryRange"
+                        value={bodyInjuryRange}
+                        min="50"
+                        max="400"
+                        step="50"
+                        className="slider"
+                        onInput={handleRange}
+                        thumbValue={`$${bodyInjuryRange}`}
+            />
+            <InputRange name="bodyInjuryRange"
+                        value={bodyInjuryRange}
+                        min="50"
+                        max="400"
+                        step="50"
+                        className="slider"
+                        onInput={handleRange}
+                        thumbValue={`$${bodyInjuryRange}`}
+            />
+            <InputRange name="bodyInjuryRange"
+                        value={bodyInjuryRange}
+                        min="50"
+                        max="400"
+                        step="50"
+                        className="slider"
+                        onInput={handleRange}
+                        thumbValue={`$${bodyInjuryRange}`}
+            />
+            <InputRange name="bodyInjuryRange"
+                        value={bodyInjuryRange}
+                        min="50"
+                        max="400"
+                        step="50"
+                        className="slider"
+                        onInput={handleRange}
+                        thumbValue={`$${bodyInjuryRange}`}
+            />
+            <InputRange name="bodyInjuryRange"
+                        value={bodyInjuryRange}
+                        min="50"
+                        max="400"
+                        step="50"
+                        className="slider"
+                        onInput={handleRange}
+                        thumbValue={`$${bodyInjuryRange}`}
+            />
+        </div>
+    );
 }
 
 export default App;
