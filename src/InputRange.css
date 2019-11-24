@@ -48,3 +48,159 @@
     color: #000;
     background: #fff;
 }
+
+
+/*rnd*/
+
+@mixin rangeThumb {
+    width: 18px;
+    height: 18px;
+    margin: -8px 0  0;
+    border-radius: 50%;
+    background: #37adbf;
+    cursor: pointer;
+    border: 0 !important;
+}
+
+@mixin rangeTrack {
+    width: 100%;
+    height: 2px;
+    cursor: pointer;
+    background: #b2b2b2;
+}
+
+.range {
+    position: relative;
+    width: 550px;
+    height: 5px;
+}
+
+.range input {
+    width: 100%;
+    position: absolute;
+    top: 2px;
+    height: 0;
+    -webkit-appearance: none;
+}
+/*// Thumb */
+.range input ::-webkit-slider-thumb {
+    -webkit-appearance: none; /*needed again for Chrome & Safari*/
+@include rangeThumb;
+}
+
+.range input ::-moz-range-thumb {
+@include rangeThumb;
+}
+
+.range input ::-ms-thumb {
+@include rangeThumb;
+}
+
+/*// Track*/
+.range input ::-webkit-slider-runnable-track {
+@include rangeTrack;
+}
+
+.range input ::-moz-range-track {
+@include rangeTrack;
+}
+
+.range input ::-ms-track {
+@include rangeTrack;
+}
+
+.range input :focus { /*override outline/background on focus*/
+    background: none;
+    outline: none;
+}
+
+.range input ::-ms-track {  /*A little somethin' somethin' for IE*/
+    width: 100%;
+    cursor: pointer;
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+}
+
+/*// Labels below slider*/
+
+.range-labels {
+    /*margin: 18px -41px 0;*/
+    /*padding: 0;*/
+    /*list-style: none;*/
+
+    margin: 18px 0px 0;
+    padding: 0;
+    list-style: none;
+    width: 100%;
+}
+.range-labels li {
+    position: relative;
+    float: left;
+    width: 109.25px;
+    text-align: left;
+    color: #b2b2b2;
+    font-size: 14px;
+    cursor: pointer;
+}
+.range-labels li:last-child {
+    width: 5px;
+}
+.range-labels li::before {
+    position: absolute;
+    top: -23px;
+    right: 0;
+    left: -12.5px;
+    content: "";
+    /*margin: 0 auto;*/
+    margin: 0;
+    width: 25px;
+    height: 25px;
+    background: #b2b2b2a1;
+    border-radius: 50%;
+}
+
+
+.active {
+    color: #37adbf;
+}
+
+.selected::before {
+    background: #37adbf;
+}
+
+.active.selected::before {
+    display: none;
+}
+
+.last-mark {
+    margin: 18px 0px 0;
+    padding: 0;
+    list-style: none;
+    width: 100%;
+}
+
+.last-mark  li{
+
+    position: relative;
+    float: right;
+    width: 0px;
+    text-align: left;
+    color: #b2b2b2;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.last-mark  li::before{
+    position: absolute;
+    top: -23px;
+    right: 0;
+    left: -12.5px;
+    content: "";
+    /*margin: 0 auto;*/
+    margin: 0;
+    width: 25px;
+    height: 25px;
+    background: #b2b2b2a1;
+    border-radius: 50%;
+}

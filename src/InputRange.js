@@ -11,8 +11,32 @@ function InputRange (propsObj) {
     const STEP = parseInt(step);
     const MIN = parseInt(min);
     const MAX = parseInt(max);
-    const VALUE = [value]
+    const VALUE = [value];
+    const [liWidth, setLiwidth] = useState(20);
+    const getList = () => {
+        let ranger = document.getElementById("tracker-wraper")
+        console.log("==data==", STEP, MIN, MAX, VALUE)
+        let noOfSteps = (MAX - MIN)/STEP + 1
+        console.log("noOfSteps==>",noOfSteps);
+        if (ranger){
 
+            // console.log("==ranger==>",ranger.clientWidth/noOfSteps + 12.5);
+            let calWidth = ranger.clientWidth/noOfSteps + 12.5
+            console.log("==calWidth==>",calWidth);
+            setLiwidth(calWidth)
+            document.getElementById("waterMark").style.width = `${calWidth}px`;
+        }
+
+        let liArray = []
+        for(let i=0; i<noOfSteps-1; i++){
+            if (i<noOfSteps-2){
+                liArray.push(<li key={i} id="waterMark" style={{width: `${liWidth}px`}}>.</li>)
+            }else {
+                liArray.push(<li key={i} id="waterMark" style={{width: `5px`}}>.</li>)
+            }
+        }
+        return liArray;
+    };
     return (
         <div className='input-wraper'>
             <Range
@@ -38,9 +62,10 @@ function InputRange (propsObj) {
                         onMouseDown={props.onMouseDown}
                         onTouchStart={props.onTouchStart}
                         className='tracker-wraper'
+                        id='tracker-wraper'
                         style={{...props.style}}
                     >
-                        {/*{console.log("==props.onMouseDown==", props.onMouseDown)}*/}
+                        {console.log("==props.onMouseDown==", props)}
                         <div
                             ref={props.ref}
                             className='tracker-container'
@@ -55,6 +80,13 @@ function InputRange (propsObj) {
                             }}
                         >
                             {children}
+                            <ul className="range-labels">
+                                {getList()}
+                            </ul>
+                            <ul className="last-mark">
+                                <li>.</li>
+                            </ul>
+
                         </div>
                     </div>
                 )}
@@ -66,11 +98,18 @@ function InputRange (propsObj) {
                     >
                         {setDragged(isDragged)}
                         <div className='thumb-container'>
+                            {/*{console.log("==props==", props)}*/}
                             {thumbValue}
                         </div>
                     </div>
                 )}
             />
+
+
+            {/*<div className="range">*/}
+                {/*<input type="range" min="1" max="7" steps="1" value="1"/>*/}
+            {/*</div>*/}
+            {/*{getList()}*/}
         </div>
     );
 }
